@@ -30,7 +30,7 @@ SESSION_COOKIE_AGE = 3000
 SESSION_SAVE_EVERY_REQUEST = True
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['webapp-v2.herokuapp.com']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
