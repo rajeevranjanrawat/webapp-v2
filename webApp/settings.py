@@ -64,7 +64,7 @@ ROOT_URLCONF = 'webApp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['F:/django projects/webApp/static/'],
+        'DIRS': ['webApp/static/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,8 +132,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
 
     os.path.join(BASE_DIR, 'static'),
-    'F:/django projects/webApp/static/'
+    'webApp/static/'
 )
 
 MEDIA_URL = '/static/mediafiles/'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "F:/django projects/webApp/static/mediafiles")
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static/mediafiles")
