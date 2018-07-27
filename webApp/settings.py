@@ -64,7 +64,7 @@ ROOT_URLCONF = 'webApp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': ['static/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,3 +137,9 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = 'static/mediafiles/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static/mediafiles")
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
