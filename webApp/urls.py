@@ -29,9 +29,5 @@ urlpatterns = [
     url(r'^gallery/', photo_list, name='gallery')
 ]
 '''urlpatterns = patterns(”,)+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)'''
-'''if settings.DEBUG:
+if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
-'''
-if not settings.DEBUG:
-    urlpatterns += patterns”,
-    (r’^static/(.*)’, ‘django.views.static.serve’, {‘document_root’: settings.STATIC_ROOT}),)
