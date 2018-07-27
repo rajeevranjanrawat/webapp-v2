@@ -28,6 +28,6 @@ urlpatterns = [
     url(r'^sites/', include('sites.urls')),
     url(r'^gallery/', photo_list, name='gallery')
 ]
-urlpatterns = patterns(”,)+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+'''urlpatterns = patterns(”,)+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)'''
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
