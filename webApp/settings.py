@@ -61,7 +61,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'webApp.urls'
 
-'''TEMPLATES = [
+TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['static/', 'static/css/'],
@@ -75,11 +75,8 @@ ROOT_URLCONF = 'webApp.urls'
             ],
         },
     },
-]'''
+]
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'static')
-)
 
 WSGI_APPLICATION = 'webApp.wsgi.application'
 
