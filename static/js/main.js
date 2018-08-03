@@ -1,57 +1,49 @@
+/*
+	Visualize by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+*/
 
-(function ($) {
-    "use strict";
+$(function() {
 
-    
-    /*==================================================================
-    [ Validate ]*/
-    var input = $('.validate-input .input100');
+	// Vars.
+		var	$window = $(window),
+			$body = $('body'),
+			$wrapper = $('#wrapper');
 
-    $('.validate-form').on('submit',function(){
-        var check = true;
+	// Breakpoints.
+		skel.breakpoints({
+			xlarge:	'(max-width: 1680px)',
+			large:	'(max-width: 1280px)',
+			medium:	'(max-width: 980px)',
+			small:	'(max-width: 736px)',
+			xsmall:	'(max-width: 480px)'
+		});
 
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
-            }
-        }
+	// Disable animations/transitions until everything's loaded.
+		$body.addClass('is-loading');
 
-        return check;
-    });
+		$window.on('load', function() {
+			$body.removeClass('is-loading');
+		});
 
+	// Poptrox.
+		$window.on('load', function() {
 
-    $('.validate-form .input100').each(function(){
-        $(this).focus(function(){
-           hideValidate(this);
-        });
-    });
+			$('.thumbnails').poptrox({
+				onPopupClose: function() { $body.removeClass('is-covered'); },
+				onPopupOpen: function() { $body.addClass('is-covered'); },
+				baseZIndex: 10001,
+				useBodyOverflow: false,
+				usePopupEasyClose: true,
+				overlayColor: '#000000',
+				overlayOpacity: 0.75,
+				popupLoaderText: '',
+				fadeSpeed: 500,
+				usePopupDefaultStyling: false,
+				windowMargin: (skel.breakpoint('small').active ? 5 : 50)
+			});
 
-    function validate (input) {
-        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-                return false;
-            }
-        }
-        else {
-            if($(input).val().trim() == ''){
-                return false;
-            }
-        }
-    }
+		});
 
-    function showValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).addClass('alert-validate');
-    }
-
-    function hideValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).removeClass('alert-validate');
-    }
-    
-    
-
-})(jQuery);
+});
